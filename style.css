@@ -1,0 +1,23 @@
+.del{
+    color: red;
+    margin-left: 5px;
+}
+h1{
+    color: mediumaquamarine;
+}
+p{
+    margin-left: 5px;
+    color: grey;
+
+}
+.checkbox{
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+body{
+    margin: 10px;
+}
+.input-group {
+    width: 150%;
+}
