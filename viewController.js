@@ -1,16 +1,24 @@
 //Inputs
-addItem.onclick = createTask;
+addItem.onclick = createPerson;
 sortByNameBtn.onclick = sortByName;
-deleteSelected.onclick = deleteSelectedTasks;
+deleteSelectedBtn.onclick = deleteSelected;
 
-item.onkeyup = function (e) {e.key === "Enter" ? createTask() : console.log('Not Enter key up');
+item.onkeyup = function (e) {e.key === "Enter" ? createPerson() : console.log('Not Enter key up');
 }
 refreshList.onclick=refreshTask;
 function createTask(){
     const  text = item.value.trim();
     if (text){
-        new Task(text);
-        console.log(toDoList);
+        new Person(text);
+        console.log(personsList);
+    }
+    item.value="";
+}
+
+function createPerson(){
+    const text = item.value.split(":").map(element => element.trim()); // Удаляем пробелы
+    if (text) {
+        new Person(...text)
     }
     item.value="";
 }
@@ -18,6 +26,7 @@ function createTask(){
 function removeParentElement(e){
     e.target.parentElement.remove();
     deleteFromList(e.target.parentElement);
+    showStats(...getStats());
 }
 
 function sortByName() {
@@ -25,19 +34,19 @@ function sortByName() {
 }
 function selectTask(e) {
     e.target.checked ? e.target.parentElement.style.fontWeight = "bold" : e.target.parentElement.style.fontWeight = "normal" ;
-    selectTaskInList(e.target.parentElement,e.target.checked);
+    selectPersonInList(e.target.parentElement,e.target.checked);
 }
 
-function deleteSelectedTasks(e) {
+function deleteSelected(e) {
 if (confirm("You sure?")) {
 deleteSelectedFromList();
+    showStats(...getStats());
 }
 }
 
 //Output
 
-function addTask(task){
-    console.log(task);
+function addPerson(person){
     const li = document.createElement('li');
     //create button Delete
     const buttonDel = document.createElement('button');
@@ -51,17 +60,36 @@ function addTask(task){
     checkbox.type = 'checkbox';
     checkbox.onclick = selectTask;
     checkbox.classList.add('checkbox');
-    li.append(checkbox,document.createTextNode(task.string), buttonDel);
-    todoList.appendChild(li);
-    task.htmlElement = li;
+    li.append(checkbox,document.createTextNode(person.string), buttonDel);
+    person.htmlElement = li;
+    personsOl.appendChild(li);
+    showStats(...getStats());
 }
 
 function refreshTask(){
     //console.log(toDoList);
-    while (todoList.firstChild) {
-        todoList.removeChild(todoList.firstChild);
+    while (personsOl.firstChild) {
+        personsOl.removeChild(personsOl.firstChild);
     }
 //show all tasks again
-    toDoList.forEach(item => addTask(item));
+    personsList.forEach(item => addPerson(item));
+    showStats(...getStats());
+}
+
+function showStats(maxAge,minAge,averAge){
+    console.log('Entry to showStats')
+    console.log(maxAge,minAge,averAge);
+
+    while (stats.firstChild) {
+        stats.removeChild(stats.firstChild);
+    }
+    const h2Max = document.createElement('h3');
+    h2Max.append(document.createTextNode(`Maximum ${maxAge}`));
+    const h2Min = document.createElement('h3');
+    h2Min.append(document.createTextNode(`Minimum ${minAge}`));
+    const h2Average = document.createElement('h3');
+    h2Average.append(document.createTextNode(`Average ${averAge}`));
+    document.getElementById('stats').append(h2Max,h2Min,h2Average);
+    console.log('Exit to showStats')
 
 }

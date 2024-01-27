@@ -2,27 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ToDo list</title>
+    <title>Persons</title>
     <script src="script.js" defer></script>
     <script src="viewController.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>To DO</h1>
-<label >Add new task:
+<h1>Statistics</h1>
+<div id="stats">
+
+</div>
+<h1>Persons</h1>
     <div class="input-group mb-3">
-        <input id="item" type="text" class="form-control" placeholder="New task" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="addItem">Button</button>
+        <input id="item" type="text" class="form-control" placeholder="Name : dd.mm.yyyy : gender" aria-label="Name : dd.mm.yyyy : gender" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="addItem">Add person</button>
     </div>
 
-</label>
 <br>
-<button id="refreshList" class="btn btn-outline-primary">Refresh list</button>
-<button id="sortByNameBtn" class="btn btn-outline-primary" >Sort by A-B</button>
-<button id="deleteSelected" class="btn btn-outline-danger">Delete Selected</button>
+<div class="buttons-container">
+    <button id="refreshList" class="btn btn-outline-primary">Refresh list</button>
+    <button id="sortByNameBtn" class="btn btn-outline-primary">Sort by A-B</button>
+    <button id="deleteSelectedBtn" class="btn btn-outline-danger">Delete Selected</button>
+</div>
 
-<ol id="todoList"></ol>
+<ol id="personsOl"></ol>
 
 </body>
 </html>

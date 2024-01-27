@@ -1,23 +1,94 @@
-.del{
-    color: red;
-    margin-left: 5px;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
 }
-h1{
-    color: mediumaquamarine;
-}
-p{
-    margin-left: 5px;
-    color: grey;
 
+h1 {
+    text-align: center;
+    color: #333;
 }
-.checkbox{
-    margin-left: 5px;
-    margin-right: 5px;
 
-}
-body{
-    margin: 10px;
-}
 .input-group {
-    width: 150%;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#personsOl {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    margin: 0 5px;
+}
+
+/* Стиль для кнопок с учетом Bootstrap классов */
+.btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Дополнительные стили для кнопок */
+button {
+    cursor: pointer;
+}
+
+/* Убираем стандартные стили списка и добавляем отступы для элементов списка */
+ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+ol li {
+    background: #eee;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+/* Стиль для нечетных элементов списка */
+ol li:nth-child(odd) {
+    background: #ddd;
+}
+/* Центрирование кнопок */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Отступ между кнопками */
+    margin-bottom: 10px;
+}
+
+.buttons-container button {
+    margin: 0 5px; /* Если вам нужен дополнительный отступ между кнопками */
 }
